@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class ArmstrongNumber{
+
+    public static void main(String [] args){
+
+        Scnner sc= new Scanner(System.in);
+
+        System.out.println("Enter  number:");
+        int num= sc.nextInt();
+
+        int original=num;
+        int sum=0;
+        int digits=0;
+
+
+        // step-1 Count num of digits
+        int temp=0;
+        while(temp> 0){
+            digits++;
+            temp= temp/10;
+        }
+
+        //step-2 Calculate number of digits
+        temp= num;
+        while(temp>0){
+            int digit= temp % 10;
+
+            //find power of digit
+            int powe=1;
+            for(int i=0; i< digits; i++){
+                power *= digit;
+            }
+            sum += power;
+            temp= temp/10;
+        }
+
+        // step-3 Compare sum with original number
+        if(sum== original){
+            System.out.println(original + " is an Armstrong number.");
+        }else{
+            System.out.println(original +" is not an Armstrong number.");
+        }
+
+    }
+}
